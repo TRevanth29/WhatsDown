@@ -1,0 +1,115 @@
+/* These local fonts keep the site independent of a font server. */
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("../assets/fonts/PlusJakartaSans-Variable.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+}
+
+/* Use the monospace font for room codes and other technical labels. */
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("../assets/fonts/JetBrainsMono-Variable.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 100 800;
+  font-display: swap;
+}
+
+/* Keep the design values in one place so both pages use the same styles. */
+:root {
+  --color-primary: #74313a;
+  --color-secondary: #7e2430;
+  --color-accent: #7e2430;
+  --color-background: #eed3cf;
+  --color-surface: #74313a;
+  --color-text: #111827;
+  --color-muted: #4b5563;
+  --color-border: #24242a;
+
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --display-size: 4rem;
+  --display-weight: 500;
+  --display-line: 1.04;
+  --display-spacing: 0;
+  --body-size: 1rem;
+  --body-weight: 400;
+  --body-line: 1.6;
+  --label-size: 0.75rem;
+  --label-weight: 600;
+  --label-line: 1.2;
+
+  --space-base: 0.5rem;
+  --space-gap: 1rem;
+  --panel-padding: 1.5rem;
+  --section-padding: 5rem;
+  --radius-panel: 1rem;
+  --radius-control: 0.5rem;
+  --radius-pill: 9999px;
+  --content-width: 75rem;
+  --page-gutter: clamp(1rem, 4vw, 3rem);
+}
+
+/* Count borders and padding inside the width of each box. */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Give both pages the same paper color and reading size. */
+body {
+  margin: 0;
+  background: var(--color-background);
+  color: var(--color-text);
+  font: var(--body-weight) var(--body-size) / var(--body-line) var(--font-sans);
+}
+
+/* Let the layout set consistent gaps instead of using browser margins. */
+h1, h2, h3, p {
+  margin: 0;
+}
+
+/* Make text links recognizable and keep the underline clear of the letters. */
+a {
+  color: inherit;
+  text-underline-offset: 0.2em;
+}
+
+/* Use an outline color that contrasts with both light and dark sections. */
+:focus-visible {
+  outline: 2px solid var(--focus-color, var(--color-accent));
+  outline-offset: 4px;
+}
+
+/* Use these shared rules for inline codes and compact ticket labels. */
+code, .label {
+  font-family: var(--font-mono);
+}
+
+.label {
+  font-size: var(--label-size);
+  font-weight: var(--label-weight);
+  line-height: var(--label-line);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Leave side margins on small screens and stop lines getting too wide. */
+.page-width {
+  width: min(var(--content-width), 100% - 2 * var(--page-gutter));
+  margin-inline: auto;
+}
+
+/* Space out the temporary chat notice and keep its heading responsive. */
+.holding-page {
+  display: grid;
+  gap: var(--space-gap);
+  padding-block: var(--section-padding);
+  justify-items: start;
+}
+
+.holding-page h1 {
+  font-size: clamp(2.25rem, 6vw, var(--display-size));
+  font-weight: var(--display-weight);
+  line-height: var(--display-line);
+}

@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en" id="top">
+  <head>
+    <!-- Set the page title, phone viewport, and styles. -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="WhatsDown is a college chat parody built around one room code and zero accounts.">
+    <title>WhatsDown — A chat app with an exit strategy</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/landing.css">
+  </head>
+  <body>
+    <!-- Let keyboard users jump straight to the main content. -->
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- Keep the header links on this page. The main action lives in the hero. -->
+    <header class="page-width site-header">
+      <a class="wordmark" href="#top">WhatsDown<span aria-hidden="true">.</span></a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="#how-it-works">How it works</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <!-- Lead with the pitch and use a real link to open the chat in a new tab. -->
+      <section class="page-width hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <h1 id="hero-title">A chat app with an <span>exit strategy.</span></h1>
+          <p class="hero-summary">One room code. Two people. Nobody has to “circle back” to a chat from last semester.</p>
+          <a class="primary-link" href="chat.html" target="_blank" rel="noopener">
+            Open chat <span class="link-note">(opens in a new tab)</span>
+          </a>
+        </div>
+
+        <!-- Keep the example code selectable by drawing the ticket around HTML text. -->
+        <div class="ticket-field">
+          <div class="room-ticket">
+            <p class="ticket-label label">Room ticket <span>Specimen</span></p>
+            <div class="ticket-body">
+              <p class="label">Example code</p>
+              <p class="ticket-code">K7P-92X</p>
+            </div>
+            <p class="ticket-stub label">Admit two <span>Keep the code private</span></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Introduce the college project before explaining the room flow. -->
+      <section class="page-width section-band intro" aria-labelledby="intro-title">
+        <h2 id="intro-title">What it is</h2>
+        <p>WhatsDown is a college parody of WhatsApp. Two people share a room code and meet in a browser tab. No accounts, no profile pictures, and no need to decide whether that photo from 2019 still looks like you.</p>
+      </section>
+
+      <!-- An ordered list keeps the three steps in the right reading order. -->
+      <section class="page-width section-band process" id="how-it-works" aria-labelledby="how-title">
+        <h2 id="how-title">How it works</h2>
+        <ol class="steps" role="list">
+          <li class="step">
+            <span class="step-number label" aria-hidden="true">01</span>
+            <div class="step-copy">
+              <h3>Create a code</h3>
+              <p>Open the chat and create a room. You’ll get a short code like <code>K7P-92X</code>.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step-number label" aria-hidden="true">02</span>
+            <div class="step-copy">
+              <h3>Share it privately</h3>
+              <p>Give the code to the person you want to talk to. The group chat can sit this one out.</p>
+            </div>
+          </li>
+          <li class="step">
+            <span class="step-number label" aria-hidden="true">03</span>
+            <div class="step-copy">
+              <h3>Open the room and chat</h3>
+              <p>Join with the same code in two tabs to try it on one computer. The two-device demo adds a manual connection exchange on the same Wi-Fi.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <!-- Use a single ruled list for the parody's deliberately missing features. -->
+      <section class="page-width section-band exclusions" aria-labelledby="exclusions-title">
+        <h2 id="exclusions-title">What we don’t do</h2>
+        <ul class="ruled-list" role="list">
+          <li><strong>Push notifications.</strong> The bell is in a sock.</li>
+          <li><strong>Read receipts.</strong> You can overthink the silence yourself.</li>
+          <li><strong>Cloud backups.</strong> We left the cloud out of it.</li>
+        </ul>
+      </section>
+
+      <!-- State the intended privacy behavior and its limits while chat is in development. -->
+      <section class="privacy-band" id="privacy" aria-labelledby="privacy-title">
+        <div class="page-width privacy-content">
+          <h2 id="privacy-title">Honest privacy</h2>
+          <p class="privacy-status">Here’s what to expect when chat is ready.</p>
+          <div class="privacy-notes">
+            <article>
+              <h3>Browser encryption</h3>
+              <p>Your browser will encrypt messages. The short room code can be guessed, so keep sensitive conversations elsewhere.</p>
+            </article>
+            <article>
+              <h3>Chat history lives in the tab</h3>
+              <p>Closing or reloading will clear your tab’s chat. Your peer can still have their copy or take a screenshot.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Native details elements open and close with a click or the keyboard. -->
+      <section class="page-width section-band faq" id="faq" aria-labelledby="faq-title">
+        <h2 id="faq-title">FAQ</h2>
+        <div class="faq-answers">
+          <details>
+            <summary>Do I need an account?</summary>
+            <p>No. A room code is all you need.</p>
+          </details>
+          <details>
+            <summary>Can I try it by myself?</summary>
+            <p>Once chat is ready, open it in two tabs in the same browser profile at the same site address. Create a code in one tab and join with it in the other.</p>
+          </details>
+          <details>
+            <summary>How will I chat across two devices?</summary>
+            <p>Use the same Wi-Fi and enter the same room code on both devices. Copy the host’s connection offer to the guest, then copy the guest’s answer back. Some Wi-Fi networks block direct connections between devices.</p>
+          </details>
+          <details>
+            <summary>Can I recover a closed chat?</summary>
+            <p>No. Each tab keeps its chat in memory. Closing or reloading it clears the transcript for that tab.</p>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <!-- Credit the college project and offer a shortcut back to the top. -->
+    <footer class="page-width site-footer">
+      <p><strong>WhatsDown.</strong> College project and unofficial WhatsApp parody.</p>
+      <a href="#top">Back to top</a>
+    </footer>
+  </body>
+</html>
