@@ -53,7 +53,7 @@
         <p>WhatsDown is a college parody of WhatsApp. Two people share a room code and meet in a browser tab. No accounts, no profile pictures, and no need to decide whether that photo from 2019 still looks like you.</p>
       </section>
 
-      <!-- An ordered list keeps the three steps in the right reading order. -->
+      <!-- Keep each step's illustration after its instructions in the reading order. -->
       <section class="page-width section-band process" id="how-it-works" aria-labelledby="how-title">
         <h2 id="how-title">How it works</h2>
         <ol class="steps" role="list">
@@ -63,6 +63,8 @@
               <h3>Create a code</h3>
               <p>Open the chat and create a room. You’ll get a short code like <code>K7P-92X</code>.</p>
             </div>
+            <img class="section-art" src="assets/illustrations/step-create-code.png"
+              alt="A hand holds a blank paper ticket." width="1448" height="1086" loading="lazy" decoding="async">
           </li>
           <li class="step">
             <span class="step-number label" aria-hidden="true">02</span>
@@ -70,6 +72,8 @@
               <h3>Share it privately</h3>
               <p>Give the code to the person you want to talk to. The group chat can sit this one out.</p>
             </div>
+            <img class="section-art" src="assets/illustrations/step-share-code.png"
+              alt="Two people pass a paper ticket from hand to hand." width="1448" height="1086" loading="lazy" decoding="async">
           </li>
           <li class="step">
             <span class="step-number label" aria-hidden="true">03</span>
@@ -77,18 +81,24 @@
               <h3>Open the room and chat</h3>
               <p>Join with the same code in two tabs to try it on one computer. The two-device demo adds a manual connection exchange on the same Wi-Fi.</p>
             </div>
+            <img class="section-art" src="assets/illustrations/step-chat.png"
+              alt="Two people talk through tin cans connected by a string across a wall." width="1448" height="1086" loading="lazy" decoding="async">
           </li>
         </ol>
       </section>
 
-      <!-- Use a single ruled list for the parody's deliberately missing features. -->
+      <!-- Pair the ruled list of missing features with one illustration. -->
       <section class="page-width section-band exclusions" aria-labelledby="exclusions-title">
         <h2 id="exclusions-title">What we don’t do</h2>
-        <ul class="ruled-list" role="list">
-          <li><strong>Push notifications.</strong> The bell is in a sock.</li>
-          <li><strong>Read receipts.</strong> You can overthink the silence yourself.</li>
-          <li><strong>Cloud backups.</strong> We left the cloud out of it.</li>
-        </ul>
+        <div class="exclusions-content">
+          <ul class="ruled-list" role="list">
+            <li><strong>Push notifications.</strong> The bell is in a sock.</li>
+            <li><strong>Read receipts.</strong> You can overthink the silence yourself.</li>
+            <li><strong>Cloud backups.</strong> We left the cloud out of it.</li>
+          </ul>
+          <img class="section-art" src="assets/illustrations/no-notifications.png"
+            alt="A bell wrapped in a sock." width="1448" height="1086" loading="lazy" decoding="async">
+        </div>
       </section>
 
       <!-- State the intended privacy behavior and its limits while chat is in development. -->
@@ -96,14 +106,19 @@
         <div class="page-width privacy-content">
           <h2 id="privacy-title">Honest privacy</h2>
           <p class="privacy-status">Here’s what to expect when chat is ready.</p>
+          <!-- Put each privacy illustration below the note it explains. -->
           <div class="privacy-notes">
             <article>
               <h3>Browser encryption</h3>
               <p>Your browser will encrypt messages. The short room code can be guessed, so keep sensitive conversations elsewhere.</p>
+              <img class="section-art" src="assets/illustrations/encryption.png"
+                alt="An envelope sits inside a locked box." width="1448" height="1086" loading="lazy" decoding="async">
             </article>
             <article>
               <h3>Chat history lives in the tab</h3>
               <p>Closing or reloading will clear your tab’s chat. Your peer can still have their copy or take a screenshot.</p>
+              <img class="section-art" src="assets/illustrations/tab-closes.png"
+                alt="A browser tab turns into paper scraps and blows away." width="1448" height="1086" loading="lazy" decoding="async">
             </article>
           </div>
         </div>

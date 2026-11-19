@@ -179,6 +179,22 @@
   font-size: clamp(1.15rem, 2vw, 1.5rem);
 }
 
+/* Give the illustrated rows more room than sections with only text. */
+.process, .exclusions {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2.25fr);
+}
+
+/* Keep each image in its original proportions and frame its paper edge. */
+.section-art {
+  display: block;
+  width: 100%;
+  max-width: 19rem;
+  height: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-surface);
+}
+
 /* A vertical rule connects the steps while fine rules divide individual rows. */
 .steps, .ruled-list {
   margin: 0;
@@ -192,10 +208,18 @@
 
 .step {
   display: grid;
-  grid-template-columns: 2rem minmax(0, 1fr);
+  grid-template-columns: 2rem minmax(0, 1.25fr) minmax(0, 1fr);
+  grid-template-areas: "number copy art";
+  align-items: start;
   gap: var(--space-gap);
   padding: var(--panel-padding) var(--space-gap);
   border-bottom: 1px solid var(--color-border);
+}
+
+/* Flip the second row visually while keeping its copy before the image in HTML. */
+.step:nth-child(even) {
+  grid-template-columns: 2rem minmax(0, 1fr) minmax(0, 1.25fr);
+  grid-template-areas: "number art copy";
 }
 
 .step:first-child {
@@ -203,13 +227,31 @@
 }
 
 .step-number {
+  grid-area: number;
   padding-top: var(--space-base);
   color: var(--color-accent);
+}
+
+/* Give CSS a name for each part of the row that can move. */
+.step-copy {
+  grid-area: copy;
+}
+
+.step .section-art {
+  grid-area: art;
 }
 
 .step p, .privacy-notes p {
   margin-top: var(--space-base);
   max-width: 49ch;
+}
+
+/* Keep the bell next to the whole list on wide screens. */
+.exclusions-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  align-items: start;
+  gap: var(--panel-padding);
 }
 
 /* Use one rule per joke while keeping the feature name easy to skim. */
@@ -244,6 +286,11 @@
 .privacy-notes article {
   padding-top: var(--space-gap);
   border-top: 1px solid currentColor;
+}
+
+/* Leave a little space between each privacy explanation and its illustration. */
+.privacy-notes .section-art {
+  margin-top: var(--space-gap);
 }
 
 /* Let the browser supply the disclosure marker and keyboard behavior. */
@@ -281,6 +328,18 @@
 
   .ticket-field {
     min-height: 0;
+  }
+
+  /* Keep the illustration under its instructions on a narrow screen. */
+  .step, .step:nth-child(even) {
+    grid-template-columns: 2rem minmax(0, 1fr);
+    grid-template-areas:
+      "number copy"
+      ". art";
+  }
+
+  .exclusions-content {
+    grid-template-columns: 1fr;
   }
 }
 
