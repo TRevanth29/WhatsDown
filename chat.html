@@ -1,19 +1,48 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Give the new tab its own title and the same base styles. -->
+    <!-- Load the shared styles and run the chat script after the page is ready. -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Chat — WhatsDown</title>
     <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/chat.css">
+    <script src="js/chat.js" defer></script>
   </head>
   <body>
-    <!-- This notice gives the landing link a destination while chat is being built. -->
-    <main class="page-width holding-page">
+    <!-- Give visitors a route back to the landing page. -->
+    <header class="page-width room-header">
       <p class="label">WhatsDown</p>
-      <h1>Chat is under construction.</h1>
-      <p>Your landing page is still open in the original tab.</p>
       <a href="index.html">Go to the landing page</a>
+    </header>
+
+    <main class="page-width room-layout">
+      <!-- The script enables this form after it can handle a submission. -->
+      <section aria-labelledby="room-title">
+        <h1 id="room-title">Open a room.</h1>
+        <form id="room-form" class="room-form" novalidate>
+          <fieldset id="room-fields" disabled>
+            <label for="room-code">Room code</label>
+            <p id="room-hint" class="room-hint">Enter six letters or digits, like <code>K7P-92X</code>.</p>
+            <div class="room-form-controls">
+              <input id="room-code" type="text" required autocomplete="off"
+                autocapitalize="characters" spellcheck="false" aria-describedby="room-hint room-error">
+              <button type="submit">Open room</button>
+            </div>
+            <p id="room-error" class="room-error" role="alert"></p>
+            <p class="room-hint room-script-note">JavaScript is required to check a room code.</p>
+          </fieldset>
+        </form>
+      </section>
+
+      <!-- Announce the selected room and its status after a valid submission. -->
+      <section class="room-summary" aria-labelledby="current-room-title">
+        <h2 id="current-room-title" class="label">Current room</h2>
+        <div role="status">
+          <p id="current-room" class="current-room">No room selected</p>
+          <p id="room-status" class="room-status">Enter a code to preview a room.</p>
+        </div>
+      </section>
     </main>
   </body>
 </html>
