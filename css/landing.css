@@ -53,13 +53,52 @@
   text-decoration: underline;
 }
 
-/* Let the ticket take up slightly more room than the headline on a wide screen. */
+/* Fill the hero edge to edge and clip the paper that extends past it. */
 .hero {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  background: var(--color-background);
+}
+
+.hero-desk {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left center;
+}
+
+/* Let the printed word and the ticket share the grid so the paper covers the letters. */
+.hero-layout {
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-  align-items: center;
-  gap: clamp(1.5rem, 5vw, 4.5rem);
-  padding-block: clamp(2.5rem, 8vw, 6rem);
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  grid-template-rows: 1fr auto;
+  min-height: clamp(38rem, 100svh - 4.5rem, 50rem);
+  padding-block: clamp(2.75rem, 5vw, 5rem) clamp(2.5rem, 4vw, 4rem);
+}
+
+.hero-wordmark {
+  grid-area: 1 / 1 / 3 / 3;
+  place-self: start center;
+  margin-block-start: clamp(1.5rem, 3.2vw, 3.75rem);
+  color: var(--color-primary);
+  opacity: 0.36;
+  font-size: 15vw;
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.07em;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+/* Keep the headline and link in the quiet left side of the desk. */
+.hero-copy {
+  grid-area: 2 / 1;
+  z-index: 2;
+  padding-inline-end: var(--space-gap);
 }
 
 .hero h1 {
@@ -104,27 +143,26 @@
   font-weight: var(--body-weight);
 }
 
-/* Center the ticket in a solid ink field that frames its tilted paper edges. */
-.ticket-field {
-  display: grid;
-  place-items: center;
-  min-height: clamp(20rem, 38vw, 31rem);
-  padding: clamp(1.75rem, 6vw, 4rem);
-  border: 1px solid var(--color-border);
-  background: var(--color-surface);
-}
-
-/* The hard-edged shadow makes a second paper layer without using blur. */
+/* Put the ticket in front of the large word and let it run off the right edge. */
 .room-ticket {
-  width: min(100%, 31rem);
-  padding: clamp(0.75rem, 2.5vw, var(--panel-padding));
+  grid-area: 1 / 2 / 3 / 3;
+  place-self: start;
+  z-index: 1;
+  width: 65vw;
+  margin-block-start: clamp(6.5rem, 14vw, 13rem);
+  padding: clamp(1.25rem, 3vw, 3rem) clamp(2rem, 5vw, 5rem);
   border: 1px solid var(--color-border);
   box-shadow: 0.5rem 0.6rem 0 var(--color-border);
   background: var(--color-background);
   transform: rotate(-6deg);
+  transform-origin: top left;
 }
 
 /* Paper rules split the label, sample code, and tear-off stub. */
+.ticket-label, .ticket-body, .ticket-stub {
+  max-width: min(38vw, 31rem);
+}
+
 .ticket-label, .ticket-stub {
   display: flex;
   justify-content: space-between;
@@ -144,7 +182,7 @@
 .ticket-code {
   margin-top: var(--space-base);
   color: var(--color-accent);
-  font: 700 clamp(1.65rem, 4.1vw, 3.75rem) / 1.15 var(--font-mono);
+  font: 700 clamp(2rem, 5.6vw, 5.5rem) / 1.15 var(--font-mono);
   white-space: nowrap;
 }
 
@@ -322,12 +360,39 @@
 
 /* Put the copy first and the ticket second on narrower screens. */
 @media (max-width: 48rem) {
-  .hero, .intro, .process, .exclusions, .faq {
-    grid-template-columns: 1fr;
+  .hero-layout {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    row-gap: var(--panel-padding);
+    min-height: auto;
   }
 
-  .ticket-field {
-    min-height: 0;
+  .hero-copy {
+    grid-area: 1 / 1;
+    padding-inline-end: 0;
+  }
+
+  /* Keep the decorative word behind the ticket on a separate row below the copy. */
+  .hero-wordmark, .room-ticket {
+    grid-area: 2 / 1;
+  }
+
+  .hero-wordmark {
+    margin-block-start: 0;
+  }
+
+  .room-ticket {
+    width: 105vw;
+    margin-block-start: clamp(2.5rem, 9vw, 4.5rem);
+    padding: var(--panel-padding) var(--space-gap);
+  }
+
+  .ticket-label, .ticket-body, .ticket-stub {
+    max-width: min(75vw, 31rem);
+  }
+
+  .intro, .process, .exclusions, .faq {
+    grid-template-columns: 1fr;
   }
 
   /* Keep the illustration under its instructions on a narrow screen. */

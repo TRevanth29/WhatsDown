@@ -25,17 +25,25 @@
 
     <main id="main">
       <!-- Lead with the pitch and use a real link to open the chat in a new tab. -->
-      <section class="page-width hero" aria-labelledby="hero-title">
-        <div class="hero-copy">
-          <h1 id="hero-title">A chat app with an <span>exit strategy.</span></h1>
-          <p class="hero-summary">One room code. Two people. Nobody has to “circle back” to a chat from last semester.</p>
-          <a class="primary-link" href="chat.html" target="_blank" rel="noopener">
-            Open chat <span class="link-note">(opens in a new tab)</span>
-          </a>
-        </div>
+      <section class="hero" aria-labelledby="hero-title">
+        <!-- Fill the hero with the illustrated desk. -->
+        <img class="hero-desk" src="assets/illustrations/hero-desk.png"
+          alt="A pink desk with torn ticket stubs, a paperclip, a pencil, and a coffee ring."
+          width="960" height="540" fetchpriority="high">
 
-        <!-- Keep the example code selectable by drawing the ticket around HTML text. -->
-        <div class="ticket-field">
+        <div class="page-width hero-layout">
+          <div class="hero-copy">
+            <h1 id="hero-title">A chat app with an <span>exit strategy.</span></h1>
+            <p class="hero-summary">One room code. Two people. Nobody has to “circle back” to a chat from last semester.</p>
+            <a class="primary-link" href="chat.html" target="_blank" rel="noopener">
+              Open chat <span class="link-note">(opens in a new tab)</span>
+            </a>
+          </div>
+
+          <!-- The oversized wordmark is decorative. The header already names the site. -->
+          <p class="hero-wordmark" aria-hidden="true">WhatsDown</p>
+
+          <!-- Keep the example code selectable by drawing the ticket around HTML text. -->
           <div class="room-ticket">
             <p class="ticket-label label">Room ticket <span>Specimen</span></p>
             <div class="ticket-body">

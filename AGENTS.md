@@ -35,7 +35,7 @@ in the browser and never stored.
 ## Assets
 - All images live in /assets. Read assets/README.md for the list and style.
 - Landing-page illustrations are generated with the built-in $imagegen skill,
-  then copied into assets/illustrations/. The hero section is exempt.
+  then copied into assets/illustrations/.
 - Every image gets descriptive alt text. No text inside images.
 
 ## Chat page behaviour
